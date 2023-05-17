@@ -678,11 +678,11 @@ const BookingList = () => {
                     <NavItem>
                       <NavLink
                         className={classnames(
-                          { active: activeTab === "3" },
+                          { active: activeTab === "4" },
                           "fw-semibold"
                         )}
                         onClick={() => {
-                          toggleTab("3", "Pickups");
+                          toggleTab("4", "Pickups");
                         }}
                         href="#"
                       >
@@ -693,11 +693,11 @@ const BookingList = () => {
                     <NavItem>
                       <NavLink
                         className={classnames(
-                          { active: activeTab === "4" },
+                          { active: activeTab === "5" },
                           "fw-semibold"
                         )}
                         onClick={() => {
-                          toggleTab("4", "Returns");
+                          toggleTab("5", "Returns");
                         }}
                         href="#"
                       >
@@ -708,11 +708,11 @@ const BookingList = () => {
                     <NavItem>
                       <NavLink
                         className={classnames(
-                          { active: activeTab === "4" },
+                          { active: activeTab === "6" },
                           "fw-semibold"
                         )}
                         onClick={() => {
-                          toggleTab("4", "Returns");
+                          toggleTab("6", "Returns");
                         }}
                         href="#"
                       >
@@ -726,11 +726,11 @@ const BookingList = () => {
                     <NavItem>
                       <NavLink
                         className={classnames(
-                          { active: activeTab === "5" },
+                          { active: activeTab === "7" },
                           "fw-semibold"
                         )}
                         onClick={() => {
-                          toggleTab("5", "Cancelled");
+                          toggleTab("7", "Cancelled");
                         }}
                         href="#"
                       >

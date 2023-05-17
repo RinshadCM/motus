@@ -318,35 +318,19 @@ const TableContainer = ({
         <Col className="col-md-auto">
           <div className="d-flex gap-1">
             <Button
-              color="primary"
+              color="badge badge-outline-primary"
               onClick={previousPage}
               disabled={!canPreviousPage}
             >
-              {"<"}
+              {"Previous"}
             </Button>
           </div>
         </Col>
-        <Col className="col-md-auto d-none d-md-block">
-          Page{" "}
-          <strong>
-            {pageIndex + 1} of {pageOptions.length}
-          </strong>
-        </Col>
-        <Col className="col-md-auto">
-          <Input
-            type="number"
-            min={1}
-            style={{ width: 70 }}
-            max={pageOptions.length}
-            defaultValue={pageIndex + 1}
-            onChange={onChangeInInput}
-          />
-        </Col>
-
+        
         <Col className="col-md-auto">
           <div className="d-flex gap-1">
-            <Button color="primary" onClick={nextPage} disabled={!canNextPage}>
-              {">"}
+            <Button color="badge badge-outline-primary" onClick={nextPage} disabled={!canNextPage}>
+              {"Next"}
             </Button>
           </div>
         </Col>

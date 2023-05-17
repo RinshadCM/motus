@@ -270,7 +270,7 @@ const Navdata = () => {
                 {
                     id: "starter",
                     label: "Booking List",
-                    link: "/pages-starter",
+                    link: "/booking-list",
                     parentId: "pages",
                 },
                 {

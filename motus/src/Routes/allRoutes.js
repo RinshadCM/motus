@@ -243,6 +243,7 @@ import JobLanding from "../pages/Job_Landing/Job";
 import AddEvent from "../pages/AddEvent";
 import BookingList from "../pages/BookingList";
 import BookingDetails from "../pages/BookingDetails";
+import BookRide from "../pages/BookRide";
 
 const authProtectedRoutes = [
   { path: "/dashboard-analytics", component: <DashboardAnalytics /> },
@@ -251,6 +252,7 @@ const authProtectedRoutes = [
   { path: "/add-event", component: <AddEvent /> },
   { path: "/booking-list", component: <BookingList /> },
   { path: "/booking-details", component: <BookingDetails /> },
+  { path: "/book-ride", component: <BookRide /> },
   { path: "/index", component: <DashboardEcommerce /> },
   { path: "/dashboard-crypto", component: <DashboardCrypto /> },
   { path: "/dashboard-projects", component: <DashboardProject /> },

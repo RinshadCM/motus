@@ -276,7 +276,7 @@ const Navdata = () => {
                 {
                     id: "profile",
                     label: "Book a Ride",
-                    link: "/#",
+                    link: "/book-ride",
                     // isChildItem: true,
                     click: function (e) {
                         e.preventDefault();

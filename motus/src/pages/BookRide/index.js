@@ -100,6 +100,26 @@ function BookRide() {
                         </NavLink>
                       </NavItem>
                     </Nav>
+                    <CardBody className="card-body">
+                      <div
+                        style={{
+                          width: "100%",
+                          height: "auto",
+                          borderRadius: "5px",
+                        }}
+                        className=""
+                      >
+                        <iframe
+                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1861227.8137337372!2d51.654904288504646!3d24.33915646928631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e48dfb1ab12bd%3A0x33d32f56c0080aa7!2sUnited%20Arab%20Emirates!5e0!3m2!1sen!2sin!4v1664257145153!5m2!1sen!2sin"
+                          width="100%"
+                          height="700"
+                          style={{ border: "0", borderRadius: "5px" }}
+                          allowFullScreen="no"
+                          loading="lazy"
+                          referrerPolicy="no-referrer-when-downgrade"
+                        ></iframe>
+                      </div>
+                    </CardBody>
                   </Col>
                   <Col lg={9}>
                     <TabContent
@@ -226,15 +246,24 @@ function BookRide() {
                               </div>
                             </Col>
                             <div className="d-flex flex-wrap gap-2 my-4">
-                              <Button className="btn btn-soft-primary waves-effect waves-light" outline>
+                              <Button
+                                className="btn btn-soft-primary waves-effect waves-light"
+                                outline
+                              >
                                 {" "}
                                 Add Stops{" "}
                               </Button>
-                              <Button className="btn btn-soft-info waves-effect waves-light" outline>
+                              <Button
+                                className="btn btn-soft-info waves-effect waves-light"
+                                outline
+                              >
                                 {" "}
                                 Add Notes{" "}
                               </Button>
-                              <Button className="btn btn-soft-secondary waves-effect waves-light" outline>
+                              <Button
+                                className="btn btn-soft-secondary waves-effect waves-light"
+                                outline
+                              >
                                 {" "}
                                 Passenger Details{" "}
                               </Button>

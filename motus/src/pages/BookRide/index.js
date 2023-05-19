@@ -10,6 +10,9 @@ import {
   Col,
   Input,
   Label,
+  Modal,
+  ModalBody,
+  ModalHeader,
   Container,
   Button,
   Nav,
@@ -44,16 +47,28 @@ function BookRide() {
 
   // Collapse with Icon
 
-  const [coll6, setcoll6] = useState(true);
   const [coll7, setcoll7] = useState(false);
-
-  const t_coll6 = () => {
-    setcoll6(!coll6);
-  };
 
   const t_coll7 = () => {
     setcoll7(!coll7);
   };
+
+  const [coll8, setcoll8] = useState(false);
+
+  const t_coll8 = () => {
+    setcoll8(!coll8);
+  };
+
+  const [coll9, setcoll9] = useState(false);
+
+  const t_coll9 = () => {
+    setcoll9(!coll9);
+  };
+
+  const [modal_standard, setmodal_standard] = useState(false);
+  function tog_standard() {
+      setmodal_standard(!modal_standard);
+  }
 
   return (
     <div className="page-content">
@@ -147,7 +162,10 @@ function BookRide() {
                     >
                       <TabPane tabId="1" id="custom-v-pills-home">
                         <div className="my-3">
-                          <div className="d-flex justify-content-between">
+                          <div
+                            className="d-flex justify-content-between"
+                            style={{ height: "1.4rem" }}
+                          >
                             <div>
                               <div className="form-check form-check-inline">
                                 <Input
@@ -156,6 +174,7 @@ function BookRide() {
                                   type="radio"
                                   className="form-check-input"
                                   defaultChecked
+                                  checked
                                   required
                                 />
                                 <Label
@@ -184,21 +203,6 @@ function BookRide() {
                             <div>
                               <div className="live-preview">
                                 <div className="hstack gap-3 mb-3">
-                                  {/* <Link
-                                to="#"
-                                onClick={t_coll6}
-                                style={{ cursor: "pointer" }}
-                                className="link-success"
-                              >
-                                <i className="ri-arrow-down-circle-line fs-16"></i>
-                              </Link>
-                              <Button
-                                color="light"
-                                onClick={t_coll7}
-                                style={{ cursor: "pointer" }}
-                              >
-                                <i className="ri-filter-2-line"></i>
-                              </Button> */}
                                   <div className="form-check form-switch mb-3">
                                     <Label
                                       className="form-check-label"
@@ -305,35 +309,116 @@ function BookRide() {
                           </Collapse>
 
                           <br />
-                          <Row className="my-3">
-                            <Col lg={6}>
-                              <label htmlFor="">
-                                Select the pickup location
-                              </label>
-                              <select
-                                className="form-select mb-3"
-                                aria-label="Default select example"
-                              >
-                                <option>Choose...</option>
-                                <option value="1">Declined Payment</option>
-                                <option value="2">Delivery Error</option>
-                                <option value="3">Wrong Amount</option>
-                              </select>
+                          <Row>
+                            <Col lg={6} className="mb-3">
+                              <div>
+                                <label htmlFor="">
+                                  Select the pickup location
+                                </label>
+                                <select
+                                  className="form-select"
+                                  aria-label="Default select example"
+                                >
+                                  <option>Choose...</option>
+                                  <option value="1">Declined Payment</option>
+                                  <option value="2">Delivery Error</option>
+                                  <option value="3">Wrong Amount</option>
+                                </select>
+                              </div>
+                              <div className="live-preview">
+                                <div>
+                                  <a
+                                    className="text-primary"
+                                    onClick={() => tog_standard()}
+                                  >
+                                    Add other location
+                                  </a>
+                                </div>
+                              </div>
                             </Col>
-                            <Col lg={6}>
-                              <label htmlFor="">
-                                Select the dropoff location
-                              </label>
-                              <select
-                                className="form-select mb-3"
-                                aria-label="Default select example"
+
+                            <Modal
+                              id="myModal"
+                              isOpen={modal_standard}
+                              toggle={() => {
+                                tog_standard();
+                              }}
+                            >
+                              <ModalHeader
+                                className="modal-title"
+                                id="myModalLabel"
+                                toggle={() => {
+                                  tog_standard();
+                                }}
                               >
-                                <option>Choose...</option>
-                                <option value="1">Declined Payment</option>
-                                <option value="2">Delivery Error</option>
-                                <option value="3">Wrong Amount</option>
-                              </select>
+                                Modal Heading
+                              </ModalHeader>
+                              <ModalBody>
+                                <h5 className="fs-15">
+                                  Overflowing text to show scroll behavior
+                                </h5>
+                                <p className="text-muted">
+                                  One morning, when Gregor Samsa woke from
+                                  troubled dreams, he found himself transformed
+                                  in his bed into a horrible vermin. He lay on
+                                  his armour-like back, and if he lifted his
+                                  head a little he could see his brown belly,
+                                  slightly domed and divided by arches into
+                                  stiff sections.
+                                </p>
+                                <p className="text-muted">
+                                  The bedding was hardly able to cover it and
+                                  seemed ready to slide off any moment. His many
+                                  legs, pitifully thin compared with the size of
+                                  the rest of him, waved about helplessly as he
+                                  looked. "What's happened to me?" he thought.
+                                </p>
+                                <p className="text-muted">
+                                  It wasn't a dream. His room, a proper human
+                                  room although a little too small, lay
+                                  peacefully between its four familiar walls.
+                                </p>
+                              </ModalBody>
+                              <div className="modal-footer">
+                                <Button
+                                  color="light"
+                                  onClick={() => {
+                                    tog_standard();
+                                  }}
+                                >
+                                  Close
+                                </Button>
+                                <Button color="primary">Save changes</Button>
+                              </div>
+                            </Modal>
+
+                            <Col lg={6} className="mb-3">
+                              <div>
+                                <label htmlFor="">
+                                  Select the dropoff location
+                                </label>
+                                <select
+                                  className="form-select"
+                                  aria-label="Default select example"
+                                >
+                                  <option>Choose...</option>
+                                  <option value="1">Declined Payment</option>
+                                  <option value="2">Delivery Error</option>
+                                  <option value="3">Wrong Amount</option>
+                                </select>
+                              </div>
+                              <div className="live-preview">
+                                <div>
+                                  <a
+                                    className="text-primary"
+                                    onClick={() => tog_standard()}
+                                  >
+                                    Add other location
+                                  </a>
+                                </div>
+                              </div>
                             </Col>
+
                             <Col lg={4}>
                               <div>
                                 <Label
@@ -394,36 +479,278 @@ function BookRide() {
                                 />
                               </div>
                             </Col>
-                            <div className="d-flex flex-wrap gap-2 my-4">
-                              <Button
-                                className="btn btn-soft-primary waves-effect waves-light"
-                                outline
-                              >
-                                {" "}
-                                Add Stops{" "}
-                              </Button>
-                              <Button
-                                className="btn btn-soft-info waves-effect waves-light"
-                                outline
-                              >
-                                {" "}
-                                Add Notes{" "}
-                              </Button>
-                              <Button
-                                className="btn btn-soft-secondary waves-effect waves-light"
-                                outline
-                              >
-                                {" "}
-                                Passenger Details{" "}
-                              </Button>
-                            </div>
+                            <Col>
+                              <div className="d-flex justify-content-between align-items-center">
+                                <div className="d-flex flex-wrap gap-2 my-4">
+                                  <Button
+                                    className="btn btn-soft-primary waves-effect waves-light"
+                                    outline
+                                  >
+                                    {" "}
+                                    Add Stops{" "}
+                                  </Button>
+                                  <Button
+                                    className="btn btn-soft-info waves-effect waves-light"
+                                    outline
+                                  >
+                                    {" "}
+                                    Add Notes{" "}
+                                  </Button>
+                                  <Button
+                                    className="btn btn-soft-secondary waves-effect waves-light"
+                                    outline
+                                  >
+                                    {" "}
+                                    Passenger Details{" "}
+                                  </Button>
+                                </div>
+                                <div>
+                                  <div className="live-preview">
+                                    <div className="hstack gap-3">
+                                      <div className="form-check form-switch">
+                                        <Label
+                                          className="form-check-label"
+                                          htmlFor="SwitchCheck1"
+                                        >
+                                          Have flight details?
+                                        </Label>
+                                        <Input
+                                          className="form-check-input link-success"
+                                          type="checkbox"
+                                          role="switch"
+                                          id="SwitchCheck1"
+                                          onClick={t_coll8}
+                                          style={{ cursor: "pointer" }}
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </Col>
                           </Row>
                         </div>
+                        <Collapse isOpen={coll8} id="collapseWithicon2">
+                          <div className="card mb-0">
+                            <CardBody>
+                              <Row className="">
+                                <Col lg={3}>
+                                  <div>
+                                    <Label
+                                      htmlFor="labelInput"
+                                      className="form-label"
+                                    >
+                                      Flight Name
+                                    </Label>
+                                    <Input
+                                      type="text"
+                                      className="form-control"
+                                      id="labelInput"
+                                    />
+                                  </div>
+                                </Col>
+                                <Col lg={2}>
+                                  <div>
+                                    <Label
+                                      htmlFor="labelInput"
+                                      className="form-label"
+                                    >
+                                      Flight No
+                                    </Label>
+                                    <Input
+                                      type="text"
+                                      className="form-control"
+                                      id="labelInput"
+                                    />
+                                  </div>
+                                </Col>
+                                <Col lg={2}>
+                                  <div>
+                                    <Label
+                                      htmlFor="exampleInputdate"
+                                      className="form-label"
+                                    >
+                                      Arrival Date
+                                    </Label>
+                                    <Input
+                                      type="date"
+                                      className="form-control"
+                                      id="exampleInputdate"
+                                    />
+                                  </div>
+                                </Col>
+                                <Col lg={2}>
+                                  <div>
+                                    <Label
+                                      htmlFor="exampleInputtime"
+                                      className="form-label"
+                                    >
+                                      Pickup Time
+                                    </Label>
+                                    <Input
+                                      type="time"
+                                      className="form-control"
+                                      id="exampleInputtime"
+                                    />
+                                  </div>
+                                </Col>
+                                <Col lg={3}>
+                                  <div>
+                                    <Label
+                                      htmlFor="labelInput"
+                                      className="form-label"
+                                    >
+                                      Departing City Name
+                                    </Label>
+                                    <Input
+                                      type="text"
+                                      className="form-control"
+                                      id="labelInput"
+                                    />
+                                  </div>
+                                </Col>
+                              </Row>
+                            </CardBody>
+                          </div>
+                        </Collapse>
 
                         <div className="row mt-4">
-                          <div>
-                            <h6>VEHICLE DETAILS</h6>
+                          <div className="d-flex justify-content-between">
+                            <div>
+                              <h6>VEHICLE DETAILS</h6>
+                            </div>
+                            <div>
+                              <div className="live-preview">
+                                <div className="hstack gap-3 mb-3">
+                                  <div className="form-check form-switch mb-3">
+                                    <Label
+                                      className="form-check-label"
+                                      htmlFor="SwitchCheck1"
+                                    >
+                                      Vehicle Info
+                                    </Label>
+                                    <Input
+                                      className="form-check-input link-success"
+                                      type="checkbox"
+                                      role="switch"
+                                      id="SwitchCheck1"
+                                      onClick={t_coll9}
+                                      style={{ cursor: "pointer" }}
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
+                          <Collapse isOpen={coll9} id="collapseWithicon2">
+                            <div className="card mb-0">
+                              <CardBody>
+                                <Row className="">
+                                  <Col lg={3}>
+                                    <label htmlFor="">Make</label>
+                                    <select
+                                      className="form-select mb-3"
+                                      aria-label="Default select example"
+                                    >
+                                      <option>Choose...</option>
+                                      <option value="1">
+                                        Declined Payment
+                                      </option>
+                                      <option value="2">Delivery Error</option>
+                                      <option value="3">Wrong Amount</option>
+                                    </select>
+                                  </Col>
+                                  <Col lg={3}>
+                                    <label htmlFor="">Modal</label>
+                                    <select
+                                      className="form-select mb-3"
+                                      aria-label="Default select example"
+                                    >
+                                      <option>Choose...</option>
+                                      <option value="1">
+                                        Declined Payment
+                                      </option>
+                                      <option value="2">Delivery Error</option>
+                                      <option value="3">Wrong Amount</option>
+                                    </select>
+                                  </Col>
+                                  <Col lg={3}>
+                                    <label htmlFor="">Year</label>
+                                    <select
+                                      className="form-select mb-3"
+                                      aria-label="Default select example"
+                                    >
+                                      <option>Choose...</option>
+                                      <option value="1">
+                                        Declined Payment
+                                      </option>
+                                      <option value="2">Delivery Error</option>
+                                      <option value="3">Wrong Amount</option>
+                                    </select>
+                                  </Col>
+                                  <Col lg={3}>
+                                    <label htmlFor="">Colour</label>
+                                    <select
+                                      className="form-select mb-3"
+                                      aria-label="Default select example"
+                                    >
+                                      <option>Choose...</option>
+                                      <option value="1">
+                                        Declined Payment
+                                      </option>
+                                      <option value="2">Delivery Error</option>
+                                      <option value="3">Wrong Amount</option>
+                                    </select>
+                                  </Col>
+                                  <Col lg={3}>
+                                    <div className="form-check mb-2">
+                                      <Input
+                                        className="form-check-input"
+                                        type="checkbox"
+                                        id="formCheck1"
+                                      />
+                                      <Label
+                                        className="form-check-label"
+                                        htmlFor="formCheck1"
+                                      >
+                                        Baby Seat
+                                      </Label>
+                                    </div>
+                                  </Col>
+                                  <Col lg={3}>
+                                    <div className="form-check mb-2">
+                                      <Input
+                                        className="form-check-input"
+                                        type="checkbox"
+                                        id="formCheck1"
+                                      />
+                                      <Label
+                                        className="form-check-label"
+                                        htmlFor="formCheck1"
+                                      >
+                                        Sanitizer
+                                      </Label>
+                                    </div>
+                                  </Col>
+                                  <Col lg={3}>
+                                    <div className="form-check mb-2">
+                                      <Input
+                                        className="form-check-input"
+                                        type="checkbox"
+                                        id="formCheck1"
+                                      />
+                                      <Label
+                                        className="form-check-label"
+                                        htmlFor="formCheck1"
+                                      >
+                                        Water
+                                      </Label>
+                                    </div>
+                                  </Col>
+                                </Row>
+                              </CardBody>
+                            </div>
+                          </Collapse>
                           <div className="col-lg-3 col-sm-6">
                             <div
                               className="p-2 rounded form-check card-radio"

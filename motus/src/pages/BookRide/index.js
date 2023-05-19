@@ -1,10 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import BreadCrumb from "../../Components/Common/BreadCrumb";
+import { Link } from "react-router-dom";
 import Flatpickr from "react-flatpickr";
 import {
   Card,
   CardBody,
+  Collapse,
   Col,
   Input,
   Label,
@@ -28,12 +30,29 @@ import img6 from "../../assets/images/small/img-6.jpg";
 import img7 from "../../assets/images/small/img-7.jpg";
 import img8 from "../../assets/images/small/img-8.jpg";
 
+import sedanImage from "../../assets/images/cars/sedan.png";
+import suvImage from "../../assets/images/cars/suv.svg";
+import busImage from "../../assets/images/cars/bus.svg";
+
 function BookRide() {
   const [customverticalTab, setcustomverticalTab] = useState("1");
   const customtoggleVertical = (tab) => {
     if (customverticalTab !== tab) {
       setcustomverticalTab(tab);
     }
+  };
+
+  // Collapse with Icon
+
+  const [coll6, setcoll6] = useState(true);
+  const [coll7, setcoll7] = useState(false);
+
+  const t_coll6 = () => {
+    setcoll6(!coll6);
+  };
+
+  const t_coll7 = () => {
+    setcoll7(!coll7);
   };
 
   return (
@@ -110,7 +129,7 @@ function BookRide() {
                         className=""
                       >
                         <iframe
-                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1861227.8137337372!2d51.654904288504646!3d24.33915646928631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e48dfb1ab12bd%3A0x33d32f56c0080aa7!2sUnited%20Arab%20Emirates!5e0!3m2!1sen!2sin!4v1664257145153!5m2!1sen!2sin"
+                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d66832.49697237734!2d55.32890373891556!3d25.221170258855782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f677ee7aee0fd%3A0x9ca6e961d7706272!2sDubai%20Festival%20City%20-%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sus!4v1678446759936!5m2!1sen!2sus"
                           width="100%"
                           height="700"
                           style={{ border: "0", borderRadius: "5px" }}
@@ -128,34 +147,163 @@ function BookRide() {
                     >
                       <TabPane tabId="1" id="custom-v-pills-home">
                         <div className="my-3">
-                          <div className="form-check form-check-inline">
-                            <Input
-                              id="credit"
-                              name="paymentMethod"
-                              type="radio"
-                              className="form-check-input"
-                              defaultChecked
-                              required
-                            />
-                            <Label
-                              className="form-check-label"
-                              htmlFor="credit"
-                            >
-                              One Way
-                            </Label>
+                          <div className="d-flex justify-content-between">
+                            <div>
+                              <div className="form-check form-check-inline">
+                                <Input
+                                  id="credit"
+                                  name="paymentMethod"
+                                  type="radio"
+                                  className="form-check-input"
+                                  defaultChecked
+                                  required
+                                />
+                                <Label
+                                  className="form-check-label"
+                                  htmlFor="credit"
+                                >
+                                  One Way
+                                </Label>
+                              </div>
+                              <div className="form-check form-check-inline">
+                                <Input
+                                  id="debit"
+                                  name="paymentMethod"
+                                  type="radio"
+                                  className="form-check-input"
+                                  required
+                                />
+                                <Label
+                                  className="form-check-label"
+                                  htmlFor="debit"
+                                >
+                                  Two Way
+                                </Label>
+                              </div>
+                            </div>
+                            <div>
+                              <div className="live-preview">
+                                <div className="hstack gap-3 mb-3">
+                                  {/* <Link
+                                to="#"
+                                onClick={t_coll6}
+                                style={{ cursor: "pointer" }}
+                                className="link-success"
+                              >
+                                <i className="ri-arrow-down-circle-line fs-16"></i>
+                              </Link>
+                              <Button
+                                color="light"
+                                onClick={t_coll7}
+                                style={{ cursor: "pointer" }}
+                              >
+                                <i className="ri-filter-2-line"></i>
+                              </Button> */}
+                                  <div className="form-check form-switch mb-3">
+                                    <Label
+                                      className="form-check-label"
+                                      htmlFor="SwitchCheck1"
+                                    >
+                                      Arrival flight details
+                                    </Label>
+                                    <Input
+                                      className="form-check-input link-success"
+                                      type="checkbox"
+                                      role="switch"
+                                      id="SwitchCheck1"
+                                      onClick={t_coll7}
+                                      style={{ cursor: "pointer" }}
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
-                          <div className="form-check form-check-inline">
-                            <Input
-                              id="debit"
-                              name="paymentMethod"
-                              type="radio"
-                              className="form-check-input"
-                              required
-                            />
-                            <Label className="form-check-label" htmlFor="debit">
-                              Two Way
-                            </Label>
-                          </div>
+
+                          <Collapse isOpen={coll7} id="collapseWithicon2">
+                            <div className="card mb-0">
+                              <CardBody>
+                                <Row className="">
+                                  <Col lg={3}>
+                                    <div>
+                                      <Label
+                                        htmlFor="labelInput"
+                                        className="form-label"
+                                      >
+                                        Flight Name
+                                      </Label>
+                                      <Input
+                                        type="text"
+                                        className="form-control"
+                                        id="labelInput"
+                                      />
+                                    </div>
+                                  </Col>
+                                  <Col lg={2}>
+                                    <div>
+                                      <Label
+                                        htmlFor="labelInput"
+                                        className="form-label"
+                                      >
+                                        Flight No
+                                      </Label>
+                                      <Input
+                                        type="text"
+                                        className="form-control"
+                                        id="labelInput"
+                                      />
+                                    </div>
+                                  </Col>
+                                  <Col lg={2}>
+                                    <div>
+                                      <Label
+                                        htmlFor="exampleInputdate"
+                                        className="form-label"
+                                      >
+                                        Arrival Date
+                                      </Label>
+                                      <Input
+                                        type="date"
+                                        className="form-control"
+                                        id="exampleInputdate"
+                                      />
+                                    </div>
+                                  </Col>
+                                  <Col lg={2}>
+                                    <div>
+                                      <Label
+                                        htmlFor="exampleInputtime"
+                                        className="form-label"
+                                      >
+                                        Pickup Time
+                                      </Label>
+                                      <Input
+                                        type="time"
+                                        className="form-control"
+                                        id="exampleInputtime"
+                                      />
+                                    </div>
+                                  </Col>
+                                  <Col lg={3}>
+                                    <div>
+                                      <Label
+                                        htmlFor="labelInput"
+                                        className="form-label"
+                                      >
+                                        Departing City Name
+                                      </Label>
+                                      <Input
+                                        type="text"
+                                        className="form-control"
+                                        id="labelInput"
+                                      />
+                                    </div>
+                                  </Col>
+                                </Row>
+                              </CardBody>
+                            </div>
+                          </Collapse>
+
                           <br />
                           <Row className="my-3">
                             <Col lg={6}>
@@ -188,30 +336,31 @@ function BookRide() {
                             </Col>
                             <Col lg={4}>
                               <div>
-                                <Label className="form-label">
+                                <Label
+                                  htmlFor="exampleInputdate"
+                                  className="form-label"
+                                >
                                   Pickup Date
                                 </Label>
-                                <Flatpickr
+                                <Input
+                                  type="date"
                                   className="form-control"
-                                  options={{
-                                    dateFormat: "d M, Y",
-                                  }}
+                                  id="exampleInputdate"
                                 />
                               </div>
                             </Col>
                             <Col lg={2}>
                               <div>
-                                <Label className="form-label">
+                                <Label
+                                  htmlFor="exampleInputtime"
+                                  className="form-label"
+                                >
                                   Pickup Time
                                 </Label>
-                                <Flatpickr
+                                <Input
+                                  type="time"
                                   className="form-control"
-                                  options={{
-                                    enableTime: true,
-                                    noCalendar: true,
-                                    dateFormat: "H:i",
-                                    time_24hr: true,
-                                  }}
+                                  id="exampleInputtime"
                                 />
                               </div>
                             </Col>
@@ -269,6 +418,176 @@ function BookRide() {
                               </Button>
                             </div>
                           </Row>
+                        </div>
+
+                        <div className="row mt-4">
+                          <div>
+                            <h6>VEHICLE DETAILS</h6>
+                          </div>
+                          <div className="col-lg-3 col-sm-6">
+                            <div
+                              className="p-2 rounded form-check card-radio"
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "space-between",
+                                height: "100%",
+                              }}
+                            >
+                              <input
+                                id="vehicleType1"
+                                name="vehicleselect"
+                                type="radio"
+                                className="form-check-input"
+                              />
+                              <label
+                                className="d-flex align-items-center form-check-label border border-1 border-dashed"
+                                htmlFor="vehicleType1"
+                              >
+                                <div
+                                  className="flex-grow-1 d-grid"
+                                  style={{ height: "100%" }}
+                                >
+                                  <div className="car_image">
+                                    <img
+                                      src={sedanImage}
+                                      alt=""
+                                      style={{
+                                        width: "100%",
+                                        height: "100%",
+                                        objectFit: "cover",
+                                      }}
+                                    />
+                                  </div>
+                                  <p className="text-muted mb-1">Car</p>
+                                  <h5 className="mb-0">Sedan</h5>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+                          <div className="col-lg-3 col-sm-6">
+                            <div
+                              className="p-2 rounded form-check card-radio"
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "space-between",
+                                height: "100%",
+                              }}
+                            >
+                              <input
+                                id="vehicleType2"
+                                name="vehicleselect"
+                                type="radio"
+                                className="form-check-input"
+                              />
+                              <label
+                                className="d-flex align-items-center form-check-label border border-1 border-dashed"
+                                htmlFor="vehicleType2"
+                              >
+                                <div
+                                  className="flex-grow-1 d-grid"
+                                  style={{ height: "100%" }}
+                                >
+                                  <div className="car_image">
+                                    <img
+                                      src={suvImage}
+                                      alt=""
+                                      style={{
+                                        width: "100%",
+                                        height: "100%",
+                                        objectFit: "cover",
+                                      }}
+                                    />
+                                  </div>
+                                  <p className="text-muted mb-1">Car</p>
+                                  <h5 className="mb-0">22 Seater</h5>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+                          <div className="col-lg-3 col-sm-6">
+                            <div
+                              className="p-2 rounded form-check card-radio"
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "space-between",
+                                height: "100%",
+                              }}
+                            >
+                              <input
+                                id="vehicleType3"
+                                name="vehicleselect"
+                                type="radio"
+                                className="form-check-input"
+                              />
+                              <label
+                                className="d-flex align-items-center form-check-label border border-1 border-dashed"
+                                htmlFor="vehicleType3"
+                              >
+                                <div
+                                  className="flex-grow-1 d-grid"
+                                  style={{ height: "100%" }}
+                                >
+                                  <div className="car_image">
+                                    <img
+                                      src={sedanImage}
+                                      alt=""
+                                      style={{
+                                        width: "100%",
+                                        height: "100%",
+                                        objectFit: "cover",
+                                      }}
+                                    />
+                                  </div>
+                                  <p className="text-muted mb-1">Car</p>
+                                  <h5 className="mb-0">SUV/Crossover</h5>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+                          <div className="col-lg-3 col-sm-6">
+                            <div
+                              className="p-2 rounded form-check card-radio"
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "space-between",
+                                height: "100%",
+                              }}
+                            >
+                              <input
+                                id="vehicleType4"
+                                name="vehicleselect"
+                                type="radio"
+                                className="form-check-input"
+                              />
+                              <label
+                                className="d-flex align-items-center form-check-label border border-1 border-dashed"
+                                htmlFor="vehicleType4"
+                              >
+                                <div
+                                  className="flex-grow-1 d-grid"
+                                  style={{ height: "100%" }}
+                                >
+                                  <div className="car_image">
+                                    <img
+                                      src={busImage}
+                                      alt=""
+                                      style={{
+                                        width: "100%",
+                                        height: "100%",
+                                        objectFit: "cover",
+                                      }}
+                                    />
+                                  </div>
+                                  <p className="text-muted mb-1">Car</p>
+                                  <h5 className="mb-0">SUV/Crossover</h5>
+                                </div>
+                              </label>
+                            </div>
+                          </div>
                         </div>
                       </TabPane>
                       <TabPane tabId="2" id="custom-v-pills-profile">

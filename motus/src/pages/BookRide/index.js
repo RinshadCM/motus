@@ -67,8 +67,15 @@ function BookRide() {
 
   const [modal_standard, setmodal_standard] = useState(false);
   function tog_standard() {
-      setmodal_standard(!modal_standard);
+    setmodal_standard(!modal_standard);
   }
+
+  const [customNav, setcustomNav] = useState("1");
+  const customNavtoggle = (tab) => {
+    if (customNav !== tab) {
+      setcustomNav(tab);
+    }
+  };
 
   return (
     <div className="page-content">
@@ -351,44 +358,154 @@ function BookRide() {
                                   tog_standard();
                                 }}
                               >
-                                Modal Heading
+                                Add other Locations
                               </ModalHeader>
                               <ModalBody>
-                                <h5 className="fs-15">
-                                  Overflowing text to show scroll behavior
-                                </h5>
-                                <p className="text-muted">
-                                  One morning, when Gregor Samsa woke from
-                                  troubled dreams, he found himself transformed
-                                  in his bed into a horrible vermin. He lay on
-                                  his armour-like back, and if he lifted his
-                                  head a little he could see his brown belly,
-                                  slightly domed and divided by arches into
-                                  stiff sections.
-                                </p>
-                                <p className="text-muted">
-                                  The bedding was hardly able to cover it and
-                                  seemed ready to slide off any moment. His many
-                                  legs, pitifully thin compared with the size of
-                                  the rest of him, waved about helplessly as he
-                                  looked. "What's happened to me?" he thought.
-                                </p>
-                                <p className="text-muted">
-                                  It wasn't a dream. His room, a proper human
-                                  room although a little too small, lay
-                                  peacefully between its four familiar walls.
-                                </p>
+                                <CardBody>
+                                  <Nav
+                                    pills
+                                    className="nav-customs nav-danger mb-3"
+                                  >
+                                    <div className="d-flex justify-content-center  w-100">
+                                      <NavItem>
+                                        <NavLink
+                                          style={{ cursor: "pointer" }}
+                                          className={classnames({
+                                            active: customNav === "1",
+                                          })}
+                                          onClick={() => {
+                                            customNavtoggle("1");
+                                          }}
+                                        >
+                                          Google Places
+                                        </NavLink>
+                                      </NavItem>
+                                      <NavItem>
+                                        <NavLink
+                                          style={{ cursor: "pointer" }}
+                                          className={classnames({
+                                            active: customNav === "2",
+                                          })}
+                                          onClick={() => {
+                                            customNavtoggle("2");
+                                          }}
+                                        >
+                                          Lat Long
+                                        </NavLink>
+                                      </NavItem>
+                                    </div>
+                                  </Nav>
+
+                                  <TabContent
+                                    activeTab={customNav}
+                                    className="text-muted"
+                                  >
+                                    <TabPane tabId="1" id="border-navs-home">
+                                      <div
+                                        className="tab-pane active pt-3"
+                                        id="border-navs-home"
+                                        role="tabpanel"
+                                      >
+                                        <div className="d-flex gap-2">
+                                          <Col lg={6}>
+                                            <div>
+                                              <Label
+                                                htmlFor="iconInput"
+                                                className="form-label"
+                                              >
+                                                Enter pickup location
+                                              </Label>
+                                              <div className="form-icon">
+                                                <Input
+                                                  type="email"
+                                                  className="form-control form-control-icon"
+                                                  id="iconInput"
+                                                  placeholder="Enter pickup location"
+                                                />
+                                                <i className="ri-map-pin-line"></i>
+                                              </div>
+                                            </div>
+                                          </Col>
+
+                                          <Col className="" lg={6}>
+                                            <div>
+                                              <Label
+                                                htmlFor="iconInput"
+                                                className="form-label"
+                                              >
+                                                Enter drop location
+                                              </Label>
+                                              <div className="form-icon">
+                                                <Input
+                                                  type="email"
+                                                  className="form-control form-control-icon"
+                                                  id="iconInput"
+                                                  placeholder="Enter drop location"
+                                                />
+                                                <i className="ri-stop-fill"></i>
+                                              </div>
+                                            </div>
+                                          </Col>
+                                        </div>
+                                      </div>
+                                    </TabPane>
+
+                                    <TabPane tabId="2" id="border-navs-profile">
+                                      <div
+                                        className="tab-pane active pt-3"
+                                        id="border-navs-home"
+                                        role="tabpanel"
+                                      >
+                                        <div className="d-flex gap-2">
+                                          <Col lg={6}>
+                                            <div>
+                                              <Label
+                                                htmlFor="iconInput"
+                                                className="form-label"
+                                              >
+                                                Enter Latitude
+                                              </Label>
+                                              <div className="form-icon">
+                                                <Input
+                                                  type="email"
+                                                  className="form-control form-control-icon"
+                                                  id="iconInput"
+                                                  placeholder="Latitude"
+                                                />
+                                                <i className="ri-map-pin-range-line"></i>
+                                              </div>
+                                            </div>
+                                          </Col>
+
+                                          <Col className="" lg={6}>
+                                            <div>
+                                              <Label
+                                                htmlFor="iconInput"
+                                                className="form-label"
+                                              >
+                                                Enter Longitude
+                                              </Label>
+                                              <div className="form-icon">
+                                                <Input
+                                                  type="email"
+                                                  className="form-control form-control-icon"
+                                                  id="iconInput"
+                                                  placeholder=" Longitude"
+                                                />
+                                                <i className="ri-map-pin-range-line"></i>
+                                              </div>
+                                            </div>
+                                          </Col>
+                                        </div>
+                                      </div>
+                                    </TabPane>
+                                  </TabContent>
+                                </CardBody>{" "}
                               </ModalBody>
                               <div className="modal-footer">
-                                <Button
-                                  color="light"
-                                  onClick={() => {
-                                    tog_standard();
-                                  }}
-                                >
-                                  Close
+                                <Button className="btn-soft-warning">
+                                  Add
                                 </Button>
-                                <Button color="primary">Save changes</Button>
                               </div>
                             </Modal>
 

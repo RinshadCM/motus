@@ -30,7 +30,7 @@ import img12 from "../../../assets/images/small/img-12.jpg";
 const UiOffcanvas = () => {
     const [open, setOpen] = useState(false);
     const [isTop, setIsTop] = useState(false);
-    const [isRight, setIsRight] = useState(false);
+    const [isRight2, setisRight2] = useState(false);
     const [isBottom, setIsBottom] = useState(false);
     const [isLeft, setIsLeft] = useState(false);
     const [isEnableScroll, setIsEnableScroll] = useState(false);
@@ -44,8 +44,8 @@ const UiOffcanvas = () => {
     const toggleTopCanvas = () => {
         setIsTop(!isTop);
     };
-    const toggleRightCanvas = () => {
-        setIsRight(!isRight);
+    const toggleRightCanvas2 = () => {
+        setisRight2(!isRight2);
     };
     const toggleBottomCanvas = () => {
         setIsBottom(!isBottom);
@@ -111,7 +111,7 @@ const UiOffcanvas = () => {
                                     <div className="live-preview">
                                         <div className="d-flex flex-wrap gap-2">
                                             <Button color="primary" onClick={toggleTopCanvas}>Toggle Top Offcanvas</Button>
-                                            <Button color="secondary" onClick={toggleRightCanvas}>Toggle Right Offcanvas</Button>
+                                            <Button color="secondary" onClick={toggleRightCanvas2}>Toggle Right Offcanvas</Button>
                                             <Button color="success" onClick={toggleBottomCanvas}>Toggle Bottom Offcanvas</Button>
                                             <Button color="danger" onClick={toggleLeftCanvas}>Toggle Left Offcanvas</Button>
                                         </div>
@@ -437,13 +437,13 @@ const UiOffcanvas = () => {
 
             {/* Right offcanvas */}
             <Offcanvas
-                isOpen={isRight}
+                isOpen={isRight2}
                 direction="end"
-                toggle={toggleRightCanvas}
+                toggle={toggleRightCanvas2}
                 id="offcanvasRight"
                 className="border-bottom"
             >
-                <OffcanvasHeader toggle={toggleRightCanvas} id="offcanvasRightLabel">
+                <OffcanvasHeader toggle={toggleRightCanvas2} id="offcanvasRightLabel">
                     Recent Acitivity
                 </OffcanvasHeader>
                 <OffcanvasBody className="p-0 overflow-hidden">

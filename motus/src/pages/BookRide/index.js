@@ -41,6 +41,7 @@ import img8 from "../../assets/images/small/img-8.jpg";
 import sedanImage from "../../assets/images/cars/sedan.png";
 import suvImage from "../../assets/images/cars/suv.svg";
 import busImage from "../../assets/images/cars/bus.svg";
+import Maintenance from "../Pages/Maintenance/Maintenance";
 
 function BookRide() {
   const [customverticalTab, setcustomverticalTab] = useState("1");
@@ -118,6 +119,12 @@ function BookRide() {
 
   return (
     <div className="page-content">
+      <div className="button_fixed_bottom d-flex gap-2">
+        <Button color="danger">Delete</Button>
+        <Button color="secondary">Draft</Button>
+        <Button color="primary">Create</Button>
+      </div>
+
       <Container fluid>
         <BreadCrumb title="Create Event" pageTitle="Events" />
         <Row>
@@ -1866,10 +1873,9 @@ function BookRide() {
                                 </div>
                               </Col>
                             </Row>
-                            
 
                             <Row>
-                            <Col lg={6} className="mb-3">
+                              <Col lg={6} className="mb-3">
                                 <div>
                                   <label htmlFor="">
                                     Select the pickup location
@@ -2151,8 +2157,6 @@ function BookRide() {
                                 </div>
                               </Col>
                             </Row>
-
-
                           </div>
                         </div>
                         <Collapse isOpen={coll8} id="collapseWithicon2">
@@ -3297,22 +3301,19 @@ function BookRide() {
                                 htmlFor="vehicleType1"
                               >
                                 <div
-                                  className="flex-grow-1 d-grid"
+                                  className="d-flex flex-grow-1 d-grid"
                                   style={{ height: "100%" }}
                                 >
-                                  <div className="car_image">
-                                    <img
-                                      src={sedanImage}
-                                      alt=""
-                                      style={{
-                                        width: "100%",
-                                        height: "100%",
-                                        objectFit: "cover",
-                                      }}
-                                    />
+                                  <div className="avatar-sm me-2">
+                                    <div className="avatar-title rounded bg-transparent text-primary fs-36">
+                                      <i className="ri-money-dollar-circle-fill"></i>
+                                    </div>
                                   </div>
-                                  <p className="text-muted mb-1">Car</p>
-                                  <h5 className="mb-0">Sedan</h5>
+
+                                  <div>
+                                    <p className="text-muted mb-1">Price:</p>
+                                    <h5 className="mb-0">$120.40</h5>
+                                  </div>
                                 </div>
                               </label>
                             </div>
@@ -3328,32 +3329,29 @@ function BookRide() {
                               }}
                             >
                               <input
-                                id="vehicleType2"
+                                id="vehicleType1"
                                 name="vehicleselect"
                                 type="radio"
                                 className="form-check-input"
                               />
                               <label
                                 className="d-flex align-items-center form-check-label border border-1 border-dashed"
-                                htmlFor="vehicleType2"
+                                htmlFor="vehicleType1"
                               >
                                 <div
-                                  className="flex-grow-1 d-grid"
+                                  className="d-flex flex-grow-1 d-grid"
                                   style={{ height: "100%" }}
                                 >
-                                  <div className="car_image">
-                                    <img
-                                      src={suvImage}
-                                      alt=""
-                                      style={{
-                                        width: "100%",
-                                        height: "100%",
-                                        objectFit: "cover",
-                                      }}
-                                    />
+                                  <div className="avatar-sm me-2">
+                                    <div className="avatar-title rounded bg-transparent text-primary fs-36">
+                                      <i className="ri-file-copy-2-fill"></i>
+                                    </div>
                                   </div>
-                                  <p className="text-muted mb-1">Car</p>
-                                  <h5 className="mb-0">22 Seater</h5>
+
+                                  <div>
+                                    <p className="text-muted mb-1">Car</p>
+                                    <h5 className="mb-0">Sedan</h5>
+                                  </div>
                                 </div>
                               </label>
                             </div>
@@ -3369,32 +3367,29 @@ function BookRide() {
                               }}
                             >
                               <input
-                                id="vehicleType3"
+                                id="vehicleType1"
                                 name="vehicleselect"
                                 type="radio"
                                 className="form-check-input"
                               />
                               <label
                                 className="d-flex align-items-center form-check-label border border-1 border-dashed"
-                                htmlFor="vehicleType3"
+                                htmlFor="vehicleType1"
                               >
                                 <div
-                                  className="flex-grow-1 d-grid"
+                                  className="d-flex flex-grow-1 d-grid"
                                   style={{ height: "100%" }}
                                 >
-                                  <div className="car_image">
-                                    <img
-                                      src={sedanImage}
-                                      alt=""
-                                      style={{
-                                        width: "100%",
-                                        height: "100%",
-                                        objectFit: "cover",
-                                      }}
-                                    />
+                                  <div className="avatar-sm me-2">
+                                    <div className="avatar-title rounded bg-transparent text-primary fs-36">
+                                      <i className="ri-stack-fill"></i>
+                                    </div>
                                   </div>
-                                  <p className="text-muted mb-1">Car</p>
-                                  <h5 className="mb-0">SUV/Crossover</h5>
+
+                                  <div>
+                                    <p className="text-muted mb-1">Coaster</p>
+                                    <h5 className="mb-0">22 Seater</h5>
+                                  </div>
                                 </div>
                               </label>
                             </div>
@@ -3410,32 +3405,31 @@ function BookRide() {
                               }}
                             >
                               <input
-                                id="vehicleType4"
+                                id="vehicleType1"
                                 name="vehicleselect"
                                 type="radio"
                                 className="form-check-input"
                               />
                               <label
                                 className="d-flex align-items-center form-check-label border border-1 border-dashed"
-                                htmlFor="vehicleType4"
+                                htmlFor="vehicleType1"
                               >
                                 <div
-                                  className="flex-grow-1 d-grid"
+                                  className="d-flex flex-grow-1 d-grid"
                                   style={{ height: "100%" }}
                                 >
-                                  <div className="car_image">
-                                    <img
-                                      src={busImage}
-                                      alt=""
-                                      style={{
-                                        width: "100%",
-                                        height: "100%",
-                                        objectFit: "cover",
-                                      }}
-                                    />
+                                  <div className="avatar-sm me-2">
+                                    <div className="avatar-title rounded bg-transparent text-primary fs-36">
+                                      <i className="ri-inbox-archive-fill"></i>
+                                    </div>
                                   </div>
-                                  <p className="text-muted mb-1">Car</p>
-                                  <h5 className="mb-0">SUV/Crossover</h5>
+
+                                  <div>
+                                    <p className="text-muted mb-1">Car</p>
+                                    <h5 className="mb-0 fs-9">
+                                      SUV/ <br /> Crossover
+                                    </h5>
+                                  </div>
                                 </div>
                               </label>
                             </div>
@@ -3443,46 +3437,7 @@ function BookRide() {
                         </div>
                       </TabPane>
                       <TabPane tabId="3" id="custom-v-pills-messages">
-                        <div className="d-flex mb-4">
-                          <div className="flex-shrink-0">
-                            <img
-                              src={img7}
-                              alt=""
-                              width="150"
-                              className="rounded"
-                            />
-                          </div>
-                          <div className="flex-grow-1 ms-3">
-                            <p className="mb-0">
-                              Trust fund seitan letterpress, keytar raw denim
-                              keffiyeh etsy art party before they sold out
-                              master cleanse gluten-free squid scenester freegan
-                              cosby sweater. Fanny pack portland seitan DIY, art
-                              party locavore wolf cliche high life echo park
-                              Austin. Cred vinyl keffiyeh DIY salvia PBR.
-                            </p>
-                          </div>
-                        </div>
-                        <div className="d-flex">
-                          <div className="flex-grow-1 me-3">
-                            <p className="mb-0">
-                              They all have something to say beyond the words on
-                              the page. They can come across as casual or
-                              neutral, exotic or graphic. That's why it's
-                              important to think about your message, then choose
-                              a font that fits. Cosby sweater eu banh mi, qui
-                              irure terry richardson ex squid.
-                            </p>
-                          </div>
-                          <div className="flex-shrink-0">
-                            <img
-                              src={img8}
-                              alt=""
-                              width="150"
-                              className="rounded"
-                            />
-                          </div>
-                        </div>
+                        <Maintenance/>
                       </TabPane>
                     </TabContent>
                   </Col>

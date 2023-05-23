@@ -296,6 +296,7 @@ const CrmContacts = () => {
 
   // Column
   const columns = useMemo(
+    
     () => [
       {
         Header: <input type="checkbox" className="form-check-input" id="checkBoxAll" onClick={() => checkedAll()} />,

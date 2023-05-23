@@ -400,7 +400,7 @@ const Navdata = () => {
             id: "tables",
             label: "Suppliers",
             icon: "ri-building-2-line",
-            link: "/#",
+            link: "/suppliers",
             click: function (e) {
                 e.preventDefault();
                 setIsTables(!isTables);

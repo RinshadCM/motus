@@ -8,7 +8,7 @@ import img10 from "../../assets/images/small/img-10.jpg";
 import img11 from "../../assets/images/small/img-11.jpg";
 import img12 from "../../assets/images/small/img-12.jpg";
 
-import company1 from "../../assets/images/companies/img-1.png";
+import company1 from "../../assets/images/logo-company.png";
 import company2 from "../../assets/images/companies/img-2.png";
 import company3 from "../../assets/images/companies/img-3.png";
 import company4 from "../../assets/images/companies/img-4.png";
@@ -625,6 +625,9 @@ const orderSummary = [
   },
 ];
 
+
+// ***********************************************************//
+
 // Ecommerce > Sellers
 
 const sellersList = [
@@ -632,98 +635,18 @@ const sellersList = [
     id: 1,
     isTrending: true,
     img: company1,
-    label: "Force Medicines",
+    label: "McLaren - Formula 1 Team",
     name: "David Marshall",
-    stock: "452",
+    events: "19",
+    bookings: "16",
+    vehicles: "11",
+    drivers: "23",
     chartdata: [12, 14, 2, 47, 42, 15, 47, 75, 65, 19, 14],
     color: "#f06548",
     balance: "$45,415",
     category:"Health & Medicine"
   },
-  {
-    id: 2,
-    isTrending: false,
-    img: company2,
-    label: "Micro Design",
-    name: "Katia Stapleton",
-    stock: "784",
-    chartdata: [12, 14, 2, 47, 42, 15, 35, 75, 20, 67, 89],
-    color: "#0ab39c",
-    balance: "$97,642",
-    category:"Manufacturer"
-  },
-  {
-    id: 3,
-    isTrending: false,
-    img: company3,
-    label: "Nesta Technologies",
-    name: "Harley Fuller",
-    stock: "320",
-    chartdata: [45, 20, 8, 42, 30, 5, 35, 79, 22, 54, 64],
-    color: "#f7b84b",
-    balance: "$27,102",
-    category:"Manufacturer"
-  },
-  {
-    id: 4,
-    isTrending: true,
-    img: company4,
-    label: "iTest Factory",
-    name: "Oliver Tyler",
-    stock: "159",
-    chartdata: [26, 15, 48, 12, 47, 19, 35, 19, 85, 68, 50],
-    color: "#0ab39c",
-    balance: "$14,933",
-    category:"Food Service"
-  },
-  {
-    id: 5,
-    isTrending: false,
-    img: company5,
-    label: "Meta4Systems",
-    name: "Zoe Dennis",
-    stock: "363",
-    chartdata: [60, 67, 12, 49, 6, 78, 63, 51, 33, 8, 16],
-    color: "#f7b84b",
-    balance: "$73,426",
-    category:"Computers & Electronics"
-  },
-  {
-    id: 6,
-    isTrending: true,
-    img: company6,
-    label: "Digitech Galaxy",
-    name: "John Roberts",
-    stock: "412",
-    chartdata: [78, 63, 51, 33, 8, 16, 60, 67, 12, 49],
-    color: "#0ab39c",
-    balance: "$34,241",
-    category:"Computers & Electronics"
-  },
-  {
-    id: 7,
-    isTrending: true,
-    img: company7,
-    label: "Syntyce Solutions",
-    name: "Demi Allen",
-    stock: "945",
-    chartdata: [15, 35, 75, 20, 67, 8, 42, 30, 5, 35],
-    color: "#f06548",
-    balance: "$17,200",
-    category:"Manufacturer"
-  },
-  {
-    id: 8,
-    isTrending: false,
-    img: company8,
-    label: "Zoetic Fashion",
-    name: "James Bowen",
-    stock: "784",
-    chartdata: [45, 32, 68, 55, 36, 10, 48, 25, 74, 54],
-    color: "#f7b84b",
-    balance: "$97,642",
-    category:"Retailer"
-  },
+ 
 ];
 
 // Ecommerce > Seller Details > Revenue

@@ -5,10 +5,16 @@ import Flatpickr from "react-flatpickr";
 // Import Images
 import multiUser from "../../assets/images/users/multi-user.jpg";
 //Import Images
+import avatar1 from "../../assets/images/users/avatar-1.jpg";
+import avatar2 from "../../assets/images/users/avatar-2.jpg";
 import avatar3 from "../../assets/images/users/avatar-3.jpg";
 import avatar4 from "../../assets/images/users/avatar-4.jpg";
 
+import Img1 from "../../assets/images/companies/img-1.png";
+import Img4 from "../../assets/images/small/img-4.jpg";
+import Img9 from "../../assets/images/small/img-9.jpg";
 import smallImage9 from "../../assets/images/small/img-9.jpg";
+import dummyImage from "../../assets/images/users/user-dummy-img.jpg";
 import userdummyimg from "../../assets/images/users/user-dummy-img.jpg";
 
 //Import Breadcrumb
@@ -27,10 +33,17 @@ import {
   ModalFooter,
   Button,
   UncontrolledDropdown,
+  Dropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
   ModalBody,
+  Offcanvas,
+  OffcanvasBody,
+  ListGroup,
+  ListGroupItem,
+  OffcanvasHeader,
+  UncontrolledTooltip,
   Nav,
   NavItem,
   NavLink,
@@ -39,6 +52,7 @@ import {
   Label,
   Form,
 } from "reactstrap";
+import SimpleBar from "simplebar-react";
 import classnames from "classnames";
 import { Link } from "react-router-dom";
 import { isEmpty } from "lodash";
@@ -152,6 +166,9 @@ const Suppliers = (cellProps) => {
     },
     validationSchema: Yup.object({
       name: Yup.string().required("Please Enter Company Name"),
+      desig: Yup.string().required("Please Enter Designation"),
+      email: Yup.string().required("Please Enter your Email"),
+      contact: Yup.string().required("Please Enter your Contact number"),
       owner: Yup.string().required("Please Enter Owner name"),
       industry_type: Yup.string().required("Please Enter Industry Type"),
       star_value: Yup.string().required("Please Enter Rating"),
@@ -296,6 +313,12 @@ const Suppliers = (cellProps) => {
     toggle();
   };
 
+  const [isRight2, setisRight2] = useState(false);
+
+  const toggleRightCanvas2 = () => {
+    setisRight2(!isRight2);
+  };
+
   const actionColumn = {
     Header: "Action",
     Cell: ({ row }) => (
@@ -377,9 +400,9 @@ const Suppliers = (cellProps) => {
           <BreadCrumb title="Suppliers List" pageTitle="Suppliers" />
           <Card>
             <CardHeader className="border-0 rounded">
-              <Row className="g-2">
-                <div className="d-flex justify-content-between">
-                  <div className="col-lg-auto">
+              <div className="d-lg-flex justify-content-between">
+                <div className="d-flex align-items-center mt-2">
+                  <Col sm={12} lg={12}>
                     <div className="hstack gap-2">
                       <button
                         className="btn btn-primary"
@@ -391,21 +414,21 @@ const Suppliers = (cellProps) => {
                         Seller
                       </button>
                     </div>
-                  </div>
-                  <div>
-                    <Col xl={12}>
-                      <div className="search-box">
-                        <Input
-                          type="text"
-                          className="form-control search"
-                          placeholder="Search..."
-                        />{" "}
-                        <i className="ri-search-line search-icon"></i>
-                      </div>
-                    </Col>
-                  </div>
-                </div>{" "}
-              </Row>
+                  </Col>
+                </div>
+                <div className="d-flex align-items-center">
+                  <Col lg={12} className="mt-2">
+                    <div className="search-box">
+                      <Input
+                        type="text"
+                        className="form-control search"
+                        placeholder="Search..."
+                      />
+                      <i className="ri-search-line search-icon"></i>
+                    </div>
+                  </Col>
+                </div>
+              </div>
             </CardHeader>
           </Card>
 
@@ -431,7 +454,7 @@ const Suppliers = (cellProps) => {
                                   <i className="ri-map-2-line fs-10 p-2"></i>
                                 </div>
                               </div>
-                              <span className="fs-13 text-sm-start">
+                              <span className="fs-13 text-start">
                                 McLaren Technology Centre,Chertsey
                                 Road,Woking,Surrey GU21 4YH.
                               </span>
@@ -700,7 +723,7 @@ const Suppliers = (cellProps) => {
                                             <Col lg={12}>
                                               <div className="mb-3">
                                                 <Label
-                                                  htmlFor="teammembersName"
+                                                  htmlFor="teammembersDesig"
                                                   className="form-label"
                                                 >
                                                   Designation
@@ -708,9 +731,9 @@ const Suppliers = (cellProps) => {
                                                 <Input
                                                   type="text"
                                                   className="form-control"
-                                                  id="teammembersName"
+                                                  id="teammembersDesig"
                                                   placeholder="Enter Designation"
-                                                  name="name"
+                                                  name="desig"
                                                   validate={{
                                                     required: { value: true },
                                                   }}
@@ -719,19 +742,20 @@ const Suppliers = (cellProps) => {
                                                   }
                                                   onBlur={validation.handleBlur}
                                                   value={
-                                                    validation.values.name || ""
+                                                    validation.values.desig ||
+                                                    ""
                                                   }
                                                   invalid={
-                                                    validation.touched.name &&
-                                                    validation.errors.name
+                                                    validation.touched.desig &&
+                                                    validation.errors.desig
                                                       ? true
                                                       : false
                                                   }
                                                 />
-                                                {validation.touched.name &&
-                                                validation.errors.name ? (
+                                                {validation.touched.desig &&
+                                                validation.errors.desig ? (
                                                   <FormFeedback type="invalid">
-                                                    {validation.errors.name}
+                                                    {validation.errors.desig}
                                                   </FormFeedback>
                                                 ) : null}
                                               </div>
@@ -740,12 +764,12 @@ const Suppliers = (cellProps) => {
                                         </div>
                                       </Col>
                                       <Col lg={12}>
-                                      <div className="d-flex gap-2">
+                                        <div className="d-flex gap-2">
                                           <div>
                                             <Col lg={12}>
                                               <div className="mb-3">
                                                 <Label
-                                                  htmlFor="teammembersName"
+                                                  htmlFor="teammembersEmail"
                                                   className="form-label"
                                                 >
                                                   Email ID
@@ -753,9 +777,9 @@ const Suppliers = (cellProps) => {
                                                 <Input
                                                   type="email"
                                                   className="form-control"
-                                                  id="teammembersName"
+                                                  id="teammembersEmail"
                                                   placeholder="Enter email"
-                                                  name="name"
+                                                  name="email"
                                                   validate={{
                                                     required: { value: true },
                                                   }}
@@ -764,19 +788,20 @@ const Suppliers = (cellProps) => {
                                                   }
                                                   onBlur={validation.handleBlur}
                                                   value={
-                                                    validation.values.name || ""
+                                                    validation.values.email ||
+                                                    ""
                                                   }
                                                   invalid={
-                                                    validation.touched.name &&
-                                                    validation.errors.name
+                                                    validation.touched.email &&
+                                                    validation.errors.email
                                                       ? true
                                                       : false
                                                   }
                                                 />
-                                                {validation.touched.name &&
-                                                validation.errors.name ? (
+                                                {validation.touched.email &&
+                                                validation.errors.email ? (
                                                   <FormFeedback type="invalid">
-                                                    {validation.errors.name}
+                                                    {validation.errors.email}
                                                   </FormFeedback>
                                                 ) : null}
                                               </div>
@@ -786,7 +811,7 @@ const Suppliers = (cellProps) => {
                                             <Col lg={12}>
                                               <div className="mb-3">
                                                 <Label
-                                                  htmlFor="teammembersName"
+                                                  htmlFor="teammembersContact"
                                                   className="form-label"
                                                 >
                                                   Contact
@@ -794,9 +819,9 @@ const Suppliers = (cellProps) => {
                                                 <Input
                                                   type="text"
                                                   className="form-control"
-                                                  id="teammembersName"
+                                                  id="teammembersContact"
                                                   placeholder="Enter phone no"
-                                                  name="name"
+                                                  name="contact"
                                                   validate={{
                                                     required: { value: true },
                                                   }}
@@ -805,19 +830,21 @@ const Suppliers = (cellProps) => {
                                                   }
                                                   onBlur={validation.handleBlur}
                                                   value={
-                                                    validation.values.name || ""
+                                                    validation.values.contact ||
+                                                    ""
                                                   }
                                                   invalid={
-                                                    validation.touched.name &&
-                                                    validation.errors.name
+                                                    validation.touched
+                                                      .contact &&
+                                                    validation.errors.contact
                                                       ? true
                                                       : false
                                                   }
                                                 />
-                                                {validation.touched.name &&
-                                                validation.errors.name ? (
+                                                {validation.touched.contact &&
+                                                validation.errors.contact ? (
                                                   <FormFeedback type="invalid">
-                                                    {validation.errors.name}
+                                                    {validation.errors.contact}
                                                   </FormFeedback>
                                                 ) : null}
                                               </div>
@@ -851,27 +878,204 @@ const Suppliers = (cellProps) => {
                           </div>
                         </div>{" "}
                         <div className="mt-3">
-                          <Link>View all</Link>
+                          <Link onClick={toggleRightCanvas2}>View all</Link>
+                        </div>
+                        <Offcanvas
+                          isOpen={isRight2}
+                          direction="end"
+                          toggle={toggleRightCanvas2}
+                          id="offcanvasRight"
+                          className="border-bottom"
+                        >
+                          <OffcanvasBody className="offcanvas-body profile-offcanvas p-0">
+                            <div className="team-cover">
+                              <img src={Img4} alt="" className="img-fluid" />
+                            </div>
+                            <div className="p-1 pb-4 pt-0">
+                              <div className="team-settings">
+                                <div className="row g-0">
+                                  <div className="d-flex justify-content-between w-100">
+                                    <div className="p-2">
+                                      <h5
+                                        id="offcanvasRightLabel"
+                                        className="text-white"
+                                      >
+                                        View All Members
+                                      </h5>
+                                    </div>
+                                    <div>
+                                      <div className="btn nav-btn">
+                                        <Button
+                                          onClick={toggleRightCanvas2}
+                                          color=""
+                                          className="btn-close btn-close-white"
+                                        ></Button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="p-3 text-center">
+                              <img
+                                src={Img1}
+                                alt=""
+                                className="avatar-lg img-thumbnail rounded-circle mx-auto profile-img"
+                              />
+                              <div className="mt-3">
+                                <h5 className="fs-16 mb-1">
+                                  <Link
+                                    to="#"
+                                    className="link-primary username"
+                                  >
+                                    Company name
+                                  </Link>
+                                </h5>
+                              </div>
+                              <div className="d-flex gap-2 justify-content-center">
+                                <button
+                                  type="button"
+                                  className="btn avatar-xs p-0"
+                                  data-bs-toggle="tooltip"
+                                  data-bs-placement="top"
+                                  title="Message"
+                                >
+                                  <span className="avatar-title rounded bg-light text-body">
+                                    <i className="ri-question-answer-line"></i>
+                                  </span>
+                                </button>
+
+                                <button
+                                  type="button"
+                                  className="btn avatar-xs p-0"
+                                  data-bs-toggle="tooltip"
+                                  data-bs-placement="top"
+                                  title="Favourite"
+                                >
+                                  <span className="avatar-title rounded bg-light text-body">
+                                    <i className="ri-star-line"></i>
+                                  </span>
+                                </button>
+
+                                <button
+                                  type="button"
+                                  className="btn avatar-xs p-0"
+                                  data-bs-toggle="tooltip"
+                                  data-bs-placement="top"
+                                  title="Phone"
+                                >
+                                  <span className="avatar-title rounded bg-light text-body">
+                                    <i className="ri-phone-line"></i>
+                                  </span>
+                                </button>
+                              </div>
+                            </div>
+                            <div>
+                            <h5 className="fs-15 ms-2 ps-2 mb-3">Members List</h5>
+                              <ListGroup>
+                                <ListGroupItem disabled>
+                                  <div className="d-flex align-items-center">
+                                    <div className="flex-shrink-0">
+                                      <img
+                                        src={avatar1}
+                                        alt=""
+                                        className="avatar-xs rounded-circle"
+                                      />
+                                    </div>
+                                    <div className="flex-grow-1 ms-2">
+                                      Member name <br /> Formula 1 Member <br />
+                                      youremail@mail.com
+                                    </div>
+                                    <div className="flex-grow-1 ms-2">
+                                      0123456789
+                                    </div>
+                                  </div>
+                                </ListGroupItem>
+                                <ListGroupItem disabled>
+                                  <div className="d-flex align-items-center">
+                                    <div className="flex-shrink-0">
+                                      <img
+                                        src={avatar2}
+                                        alt=""
+                                        className="avatar-xs rounded-circle"
+                                      />
+                                    </div>
+                                    <div className="flex-grow-1 ms-2">
+                                      Member name <br /> Formula 1 Member <br />
+                                      youremail@mail.com
+                                    </div>
+                                    <div className="flex-grow-1 ms-2">
+                                      0123456789
+                                    </div>
+                                  </div>
+                                </ListGroupItem>
+                                <ListGroupItem disabled>
+                                  <div className="d-flex align-items-center">
+                                    <div className="flex-shrink-0">
+                                      <img
+                                        src={avatar3}
+                                        alt=""
+                                        className="avatar-xs rounded-circle"
+                                      />
+                                    </div>
+                                    <div className="flex-grow-1 ms-2">
+                                      Member name <br /> Formula 1 Member <br />
+                                      youremail@mail.com
+                                    </div>
+                                    <div className="flex-grow-1 ms-2">
+                                      0123456789
+                                    </div>
+                                  </div>
+                                </ListGroupItem>
+                                <ListGroupItem disabled>
+                                  <div className="d-flex align-items-center">
+                                    <div className="flex-shrink-0">
+                                      <img
+                                        src={avatar3}
+                                        alt=""
+                                        className="avatar-xs rounded-circle"
+                                      />
+                                    </div>
+                                    <div className="flex-grow-1 ms-2">
+                                      Member name <br /> Formula 1 Member <br />
+                                      youremail@mail.com
+                                    </div>
+                                    <div className="flex-grow-1 ms-2">
+                                      0123456789
+                                    </div>
+                                  </div>
+                                </ListGroupItem>
+                              </ListGroup>
+                            </div>
+                          </OffcanvasBody>
+                        </Offcanvas>
+                      </div>
+                      <div className="d-flex justify-content-between mt-2">
+                        <div>
+                          <Col className="border-end-dashed border-end">
+                            <h5>{seller.events}</h5>
+                            <span className="text-muted">Events</span>
+                          </Col>
+                        </div>
+                        <div>
+                          <Col>
+                            <h5>{seller.bookings}</h5>
+                            <span className="text-muted">Bookings</span>
+                          </Col>
+                        </div>
+                        <div>
+                          <Col className="border-end-dashed border-end">
+                            <h5>{seller.vehicles}</h5>
+                            <span className="text-muted">Vehicles</span>
+                          </Col>
+                        </div>
+                        <div>
+                          <Col>
+                            <h5>{seller.drivers}</h5>
+                            <span className="text-muted">Drivers</span>
+                          </Col>
                         </div>
                       </div>
-                      <Row className="mt-4">
-                        <Col lg={3} className="border-end-dashed border-end">
-                          <h5>{seller.events}</h5>
-                          <span className="text-muted">Events</span>
-                        </Col>
-                        <Col lg={3}>
-                          <h5>{seller.bookings}</h5>
-                          <span className="text-muted">Bookings</span>
-                        </Col>
-                        <Col lg={3} className="border-end-dashed border-end">
-                          <h5>{seller.vehicles}</h5>
-                          <span className="text-muted">Vehicles</span>
-                        </Col>
-                        <Col lg={3}>
-                          <h5>{seller.drivers}</h5>
-                          <span className="text-muted">Drivers</span>
-                        </Col>
-                      </Row>
                     </CardBody>
                   </Card>
                 </Col>

@@ -85,7 +85,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getSellers as onGetSellers } from "../../store/ecommerce/action";
 // import SupplierChats from "./supplierChat";
 
-const Suppliers = (cellProps) => {
+const Clients = (cellProps) => {
   const dispatch = useDispatch();
   const [sellerList, setSellerList] = useState([]);
   const [modal, setModal] = useState(false);
@@ -397,7 +397,7 @@ const Suppliers = (cellProps) => {
           onCloseClick={() => setDeleteModalMulti(false)}
         />
         <Container fluid>
-          <BreadCrumb title="Suppliers List" pageTitle="Suppliers" />
+          <BreadCrumb title="Clients List" pageTitle="Clients" />
           <Card>
             <CardHeader className="border-0 rounded">
               <div className="d-lg-flex justify-content-between">
@@ -411,7 +411,7 @@ const Suppliers = (cellProps) => {
                         }}
                       >
                         <i className="ri-add-fill me-1 align-bottom"></i> Add
-                        Supplier
+                        Client
                       </button>
                     </div>
                   </Col>
@@ -1067,18 +1067,6 @@ const Suppliers = (cellProps) => {
                             <span className="text-muted">Bookings</span>
                           </Col>
                         </div>
-                        <div>
-                          <Col className="border-end-dashed border-end">
-                            <h5>{seller.vehicles}</h5>
-                            <span className="text-muted">Vehicles</span>
-                          </Col>
-                        </div>
-                        <div>
-                          <Col>
-                            <h5>{seller.drivers}</h5>
-                            <span className="text-muted">Drivers</span>
-                          </Col>
-                        </div>
                       </div>
                     </CardBody>
                   </Card>
@@ -1343,4 +1331,4 @@ const Suppliers = (cellProps) => {
   );
 };
 
-export default Suppliers;
+export default Clients;

@@ -296,7 +296,7 @@ const Navdata = () => {
             id: "tables",
             label: "Clients",
             icon: "ri-hotel-line",
-            link: "/#",
+            link: "/clients",
             click: function (e) {
                 e.preventDefault();
                 setIsTables(!isTables);

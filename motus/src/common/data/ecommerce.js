@@ -724,6 +724,101 @@ const sellersList = [
  
 ];
 
+const clientList = [
+  {
+    id: 1,
+    isTrending: true,
+    img: company1,
+    label: "McLaren - Formula 1 Team",
+    name: "David Marshall",
+    events: "19",
+    bookings: "16",
+    vehicles: "11",
+    drivers: "23",
+    chartdata: [12, 14, 2, 47, 42, 15, 47, 75, 65, 19, 14],
+    color: "#f06548",
+    balance: "$45,415",
+    category:"Health & Medicine"
+  },
+  {
+    id: 2,
+    isTrending: true,
+    img: company1,
+    label: "McLaren - Formula 1 Team",
+    name: "David Marshall",
+    events: "19",
+    bookings: "16",
+    vehicles: "11",
+    drivers: "23",
+    chartdata: [12, 14, 2, 47, 42, 15, 47, 75, 65, 19, 14],
+    color: "#f06548",
+    balance: "$45,415",
+    category:"Health & Medicine"
+  },
+  {
+    id: 3,
+    isTrending: true,
+    img: company1,
+    label: "McLaren - Formula 1 Team",
+    name: "David Marshall",
+    events: "19",
+    bookings: "16",
+    vehicles: "11",
+    drivers: "23",
+    chartdata: [12, 14, 2, 47, 42, 15, 47, 75, 65, 19, 14],
+    color: "#f06548",
+    balance: "$45,415",
+    category:"Health & Medicine"
+  },
+  {
+    id: 4,
+    isTrending: true,
+    img: company1,
+    label: "McLaren - Formula 1 Team",
+    name: "David Marshall",
+    events: "19",
+    bookings: "16",
+    vehicles: "11",
+    drivers: "23",
+    chartdata: [12, 14, 2, 47, 42, 15, 47, 75, 65, 19, 14],
+    color: "#f06548",
+    balance: "$45,415",
+    category:"Health & Medicine"
+  },
+  {
+    id: 5,
+    isTrending: true,
+    img: company1,
+    label: "McLaren - Formula 1 Team",
+    name: "David Marshall",
+    events: "19",
+    bookings: "16",
+    vehicles: "11",
+    drivers: "23",
+    chartdata: [12, 14, 2, 47, 42, 15, 47, 75, 65, 19, 14],
+    color: "#f06548",
+    balance: "$45,415",
+    category:"Health & Medicine"
+  },
+  {
+    id: 6,
+    isTrending: true,
+    img: company1,
+    label: "McLaren - Formula 1 Team",
+    name: "David Marshall",
+    events: "19",
+    bookings: "16",
+    vehicles: "11",
+    drivers: "23",
+    chartdata: [12, 14, 2, 47, 42, 15, 47, 75, 65, 19, 14],
+    color: "#f06548",
+    balance: "$45,415",
+    category:"Health & Medicine"
+  },
+ 
+];
+
+
 // Ecommerce > Seller Details > Revenue
 
 const revenueWidgets = [
@@ -824,4 +919,4 @@ const productsReview = [
   },
 ];
 
-export { productsData, productDetailsWidgets, reviews, orders, productDetails, customerList, shoppingCart, orderSummary, sellersList, revenueWidgets, productsReview };
+export { productsData, productDetailsWidgets, reviews, orders, productDetails, customerList, shoppingCart, orderSummary, sellersList, clientList, revenueWidgets, productsReview };

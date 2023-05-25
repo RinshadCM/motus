@@ -70,6 +70,7 @@ import {
   shoppingCart,
   orderSummary,
   sellersList,
+  clientList,
   revenueWidgets,
   productsReview,
 } from "./ecommerce";
@@ -145,6 +146,7 @@ export {
   shoppingCart,
   orderSummary,
   sellersList,
+  clientList,
   revenueWidgets,
   productsReview,
   crmcontacts,

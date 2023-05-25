@@ -12,6 +12,7 @@ import {
   channelsList,
   projectList,
   sellersList,
+  clientList,
   transactions,
   CryptoOrders,
   deals,
@@ -390,6 +391,20 @@ const fakeBackend = () => {
         if (sellersList) {
           // Passing fake JSON data as response
           resolve([200, sellersList]);
+        } else {
+          reject([400, "Cannot get sellers"]);
+        }
+      });
+    });
+  });
+
+  // Ecommerce > Seller
+  mock.onGet(url.GET_SELLERS).reply(() => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (clientList) {
+          // Passing fake JSON data as response
+          resolve([200, clientList]);
         } else {
           reject([400, "Cannot get sellers"]);
         }

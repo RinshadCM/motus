@@ -246,6 +246,7 @@ import BookingDetails from "../pages/BookingDetails";
 import BookRide from "../pages/BookRide";
 import Suppliers from "../pages/Suppliers";
 import Clients from "../pages/Clients";
+import EventConfig from "../pages/EventConfig";
 
 const authProtectedRoutes = [
   { path: "/dashboard-analytics", component: <DashboardAnalytics /> },
@@ -257,6 +258,7 @@ const authProtectedRoutes = [
   { path: "/book-ride", component: <BookRide /> },
   { path: "/suppliers", component: <Suppliers /> },
   { path: "/clients", component: <Clients /> },
+  { path: "/event-config", component: <EventConfig /> },
   { path: "/index", component: <DashboardEcommerce /> },
   { path: "/dashboard-crypto", component: <DashboardCrypto /> },
   { path: "/dashboard-projects", component: <DashboardProject /> },

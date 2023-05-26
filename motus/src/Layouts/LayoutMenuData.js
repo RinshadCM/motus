@@ -239,7 +239,7 @@ const Navdata = () => {
                 {
                     id: "passwordCreate",
                     label: "Event Configuration",
-                    link: "/#",
+                    link: "/event-config",
                     // isChildItem: true,
                     click: function (e) {
                         e.preventDefault();

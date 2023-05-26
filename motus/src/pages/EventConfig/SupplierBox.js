@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-import { Row, Col, Card, CardBody, CardTitle } from "reactstrap";
 import DualListBox from "react-dual-listbox";
 import "react-dual-listbox/lib/react-dual-listbox.css";
 

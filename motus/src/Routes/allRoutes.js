@@ -247,6 +247,9 @@ import BookRide from "../pages/BookRide";
 import Suppliers from "../pages/Suppliers";
 import Clients from "../pages/Clients";
 import EventConfig from "../pages/EventConfig";
+import MotusLogin from "../pages/Auth/Login";
+import LockScreen from "../pages/Auth/Login/LockScreen";
+import Forgot from "../pages/Auth/Login/Forgot";
 
 const authProtectedRoutes = [
   { path: "/dashboard-analytics", component: <DashboardAnalytics /> },
@@ -469,6 +472,9 @@ const authProtectedRoutes = [
 
 const publicRoutes = [
   // Authentication Page
+  { path: "/motus-login", component: <MotusLogin /> },
+  { path: "/lock-screen", component: <LockScreen /> },
+  { path: "/forgot", component: <Forgot /> },
   { path: "/logout", component: <Logout /> },
   { path: "/login", component: <Login /> },
   { path: "/forgot-password", component: <ForgetPasswordPage /> },

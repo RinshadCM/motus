@@ -11,9 +11,9 @@ const Footer = () => {
                             {new Date().getFullYear()} © Velzon.
                         </Col>
                         <Col sm={6}>
-                            <div className="text-sm-end d-none d-sm-block">
+                            {/* <div className="text-sm-end d-none d-sm-block">
                                 Design & Develop by Themesbrand
-                            </div>
+                            </div> */}
                         </Col>
                     </Row>
                 </Container>

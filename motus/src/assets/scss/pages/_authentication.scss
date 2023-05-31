@@ -31,13 +31,13 @@
 }
 
 .auth-one-bg{
-    background-image: url("../../images/auth-one-bg.jpg");
+    background-image: url("../../images/loginbg.webp");
     background-position: center;
     background-size: cover;
 
     .bg-overlay{
-        background: linear-gradient(to right, darken($primary, 6%), $primary);
-        opacity: 0.9;
+        background: linear-gradient(to right, darken($dark, 6%), $dark);
+        opacity: 0.7;
     }
 
     .shape{
@@ -99,7 +99,7 @@
     background: $auth-bg-cover;
 
     > .bg-overlay{
-        background-image: url("../../images/cover-pattern.png");
+        background-image: url("../../images/loginbg.webp");
         background-position: center;
         background-size: cover;
         opacity: 1;

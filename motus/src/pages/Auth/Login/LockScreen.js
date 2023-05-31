@@ -5,9 +5,9 @@ import { Button, Card, Col, Container, Row } from 'reactstrap';
 //import images
 import avatar1 from "../../../assets/images/users/avatar-1.jpg";
 
-import AuthSlider from '../authCarousel';
+import AuthCoverSlider from './AuthCoverSlider';
 
-const CoverLockScreen = () => {
+const LockScreen = () => {
 document.title="Lock Screen | Velzon - React Admin & Dashboard Template";
     return (
         <React.Fragment>
@@ -21,7 +21,7 @@ document.title="Lock Screen | Velzon - React Admin & Dashboard Template";
                                 <Col lg={12}>
                                     <Card className="overflow-hidden card-bg-fill border-0 card-border-effect-none">
                                         <Row className="justify-content-center g-0">
-                                            <AuthSlider />
+                                            <AuthCoverSlider />
                                             <Col lg={6}>
                                                 <div className="p-lg-5 p-4">
                                                     <div>
@@ -62,7 +62,7 @@ document.title="Lock Screen | Velzon - React Admin & Dashboard Template";
                             <Row>
                                 <Col lg={12}>
                                     <div className="text-center">
-                                        {/* <p className="mb-0">&copy; {new Date().getFullYear()} Velzon. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand</p> */}
+                                        <p className="mb-0">&copy; {new Date().getFullYear()} Velzon. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand</p>
                                     </div>
                                 </Col>
                             </Row>
@@ -73,4 +73,4 @@ document.title="Lock Screen | Velzon - React Admin & Dashboard Template";
     );
 };
 
-export default CoverLockScreen;
+export default LockScreen;

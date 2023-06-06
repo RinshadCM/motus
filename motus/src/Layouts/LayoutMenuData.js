@@ -327,7 +327,7 @@ const Navdata = () => {
                 {
                     id: "signIn",
                     label: "List",
-                    link: "/#",
+                    link: "/vehicle-list",
                     // isChildItem: true,
                     click: function (e) {
                         e.preventDefault();
@@ -343,7 +343,7 @@ const Navdata = () => {
                 {
                     id: "signUp",
                     label: "Add a Vehicle",
-                    link: "/#",
+                    link: "/add-vehicle",
                     // isChildItem: true,
                     click: function (e) {
                         e.preventDefault();

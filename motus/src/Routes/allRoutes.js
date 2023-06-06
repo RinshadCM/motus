@@ -250,6 +250,8 @@ import EventConfig from "../pages/EventConfig";
 import MotusLogin from "../pages/Auth/Login";
 import LockScreen from "../pages/Auth/Login/LockScreen";
 import Forgot from "../pages/Auth/Login/Forgot";
+import AddVehicle from "../pages/AddVehicle";
+import VehicleList from "../pages/VehicleList";
 
 const authProtectedRoutes = [
   { path: "/dashboard-analytics", component: <DashboardAnalytics /> },
@@ -262,6 +264,8 @@ const authProtectedRoutes = [
   { path: "/suppliers", component: <Suppliers /> },
   { path: "/clients", component: <Clients /> },
   { path: "/event-config", component: <EventConfig /> },
+  { path: "/add-vehicle", component: <AddVehicle /> },
+  { path: "/vehicle-list", component: <VehicleList /> },
   { path: "/index", component: <DashboardEcommerce /> },
   { path: "/dashboard-crypto", component: <DashboardCrypto /> },
   { path: "/dashboard-projects", component: <DashboardProject /> },
